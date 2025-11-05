@@ -1,0 +1,49 @@
+<header class="navbar">
+  <div class="logo">
+    <span class="highlight">Yogesh</span>
+  </div>
+
+  <nav [class.open]="menuOpen">
+    <a routerLink="/" (click)="toggleMenu()">Home</a>
+    <a routerLink="/about" (click)="toggleMenu()">About</a>
+    <a routerLink="/services" (click)="toggleMenu()">Services</a>
+    <a routerLink="/contact" (click)="toggleMenu()">Contact</a>
+  </nav>
+
+  <div class="menu-toggle" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<!-- New hero section starts here -->
+<section class="hero-section">
+  <div class="hero-content">
+    <!-- Left: Text -->
+    <div class="text-area">
+      <h1>
+        I am <span class="typing">{{ displayedText }}</span><span class="cursor"></span>
+      </h1>
+
+      <p class="intro">
+        I'm <strong>Yogesh Shete</strong>, a Computer Engineering graduate from PES Modern College of Engineering,
+        affiliated with Savitribai Phule Pune University, where I achieved a commendable overall CGPA of 8.88.
+        <br /><br />
+        Currently, I am excited to apply my skills and knowledge as a <strong>Software Engineer Trainee</strong> at
+        <strong>Yardi Software India Pvt Ltd</strong>. I am driven by a passion for utilizing technology to tackle
+        complex problems and eager to contribute to innovative projects in this dynamic environment.
+        <br /><br />
+        Outside of work, I love making real-life portraits, and I'm a passionate tech enthusiast always eager to explore
+        the latest in technology.
+        <br /><br />
+        Interested in collaborating? Let's connect and create something amazing together!
+      </p>
+    </div>
+
+    <!-- Right: Photo -->
+    <div class="photo-area">
+      <img src="assets/myPhoto.jpg" alt="My Photo" />
+    </div>
+  </div>
+</section>

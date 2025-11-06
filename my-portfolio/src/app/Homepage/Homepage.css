@@ -3,15 +3,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffff; /* pure white */
-  /* background: #ffffff;  */
-  color: #333;
+  background: #222831; /* pure white */
+  /* color: #333; */
   padding: 0.8rem 2rem;
   position: sticky;
   top: 0;
   z-index: 10;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* subtle shadow */
-  border-bottom: 2px solid #eee;
+  /* border-bottom: 2px solid #eee; */
 }
 
 .logo {
@@ -21,24 +20,34 @@
 }
 
 .highlight {
-  color: #031447;
+  color: rgb(139, 245, 255);
+  font-family: "Elms Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  padding-left: 50px;
 }
 
 /* ===== Navigation Links ===== */
 nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 4rem;
+  padding-right: 100px;
 }
 
 nav a {
   text-decoration: none;
-  color: rgb(18, 1, 1);
+  color: rgb(139, 245, 255);
   font-weight: 500;
   transition: color 0.3s ease;
+  font-family: "Elms Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 nav a:hover {
-  color: #5791ba;
+  color: #0d5589;
 }
 
 /* ===== Mobile Menu Toggle ===== */
@@ -51,7 +60,7 @@ nav a:hover {
 .menu-toggle span {
   height: 3px;
   width: 25px;
-  background: white;
+  background: rgb(133, 4, 4);
   margin: 4px 0;
   border-radius: 2px;
   transition: 0.4s;
@@ -90,7 +99,7 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e6e5e5; /* light gray background */
+  background: #222831; /* light gray background */
   color: #333;
   padding: 3rem 2rem;
   box-sizing: border-box;
@@ -102,7 +111,7 @@ nav a:hover {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 1100px;
+  max-width: 1250px;
   width: 100%;
 }
 
@@ -119,12 +128,20 @@ nav a:hover {
 .text-area h1 {
   font-weight: 600;
   margin-bottom: 1.2rem;
-  color: #222;
+  color: #ffffff;
+  font-family: "Stack Sans Notch", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 .typing {
-  color: #24689f;
+  color: #06e2ee;
   font-weight: bold;
+  font-family: "Stack Sans Notch", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  text-shadow: 0 0 6px #50fcfc;
 }
 
 .cursor {
@@ -143,16 +160,20 @@ nav a:hover {
 .intro {
   font-size: 1rem;
   line-height: 1.7;
-  color: #444;
+  color: #EEEEEE;
   max-width: 550px;
   text-align: justify;
   font-weight: 400;
   letter-spacing: 0.2px;
   margin-top: 0.5rem;
+  font-family: "Elms Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .intro strong {
-  color: #ff4b2b;
+  color: #03787e;
 }
 
 /* ===== Right Image ===== */

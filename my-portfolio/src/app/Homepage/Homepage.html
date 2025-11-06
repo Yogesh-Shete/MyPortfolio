@@ -1,12 +1,13 @@
 <header class="navbar">
   <div class="logo">
-    <span class="highlight">Yogesh</span>
+    <span class="highlight">Yogesh Shete</span>
   </div>
 
   <nav [class.open]="menuOpen">
     <a routerLink="/" (click)="toggleMenu()">Home</a>
-    <a routerLink="/about" (click)="toggleMenu()">About</a>
-    <a routerLink="/services" (click)="toggleMenu()">Services</a>
+    <a routerLink="/services" (click)="toggleMenu()">Experience</a>
+    <a routerLink="/services" (click)="toggleMenu()">Projects</a>
+    <a routerLink="/about" (click)="toggleMenu()">Education</a>
     <a routerLink="/contact" (click)="toggleMenu()">Contact</a>
   </nav>
 
@@ -23,23 +24,27 @@
     <!-- Left: Text -->
     <div class="text-area">
       <h1>
-        I am <span class="typing">{{ displayedText }}</span><span class="cursor"></span>
+        I am <span class="typing">{{ displayedText }}</span>
       </h1>
 
       <p class="intro">
-        I'm <strong>Yogesh Shete</strong>, a Computer Engineering graduate from PES Modern College of Engineering,
-        affiliated with Savitribai Phule Pune University, where I achieved a commendable overall CGPA of 8.88.
+        Hey there! I'm <strong>Yogesh Shete</strong> — a <strong>Computer Engineering graduate</strong> from
+        PES Modern College of Engineering (SPPU), where I wrapped up my degree with a CGPA of <strong>8.88</strong>.
         <br /><br />
-        Currently, I am excited to apply my skills and knowledge as a <strong>Software Engineer Trainee</strong> at
-        <strong>Yardi Software India Pvt Ltd</strong>. I am driven by a passion for utilizing technology to tackle
-        complex problems and eager to contribute to innovative projects in this dynamic environment.
+        Currently, I’m working as a <strong>Software Engineer Trainee</strong> at
+        <strong>Yardi Software India Pvt. Ltd.</strong>, where I get to transform ideas into meaningful, working
+        software.
+        I love solving real-world problems through clean, creative, and efficient code.
         <br /><br />
-        Outside of work, I love making real-life portraits, and I'm a passionate tech enthusiast always eager to explore
-        the latest in technology.
+        When I’m not coding, you’ll often find me sketching <strong>real-life portraits</strong> or geeking out about
+        the
+        latest tech innovations. I believe art and technology share the same spirit — creativity, precision, and impact.
         <br /><br />
-        Interested in collaborating? Let's connect and create something amazing together!
+        Always curious, always learning, and always open to new collaborations —
+        let’s connect and <strong>build something amazing together!</strong>
       </p>
     </div>
+
 
     <!-- Right: Photo -->
     <div class="photo-area">

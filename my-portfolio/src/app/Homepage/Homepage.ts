@@ -10,7 +10,7 @@ export class Homepage {
     menuOpen = false;
 
     // New typing effect variables
-    titles: string[] = ['Developer', 'Engineer', 'Designer', 'Creator'];
+    titles: string[] = ['Yogesh', 'Engineer', 'Developer', 'Artist'];
     displayedText = '';
     private currentTitleIndex = 0;
     private isDeleting = false;

@@ -1,0 +1,31 @@
+<section class="experience-section">
+  <h2 class="section-title">Experience</h2>
+
+  <div class="timeline">
+    <div
+      class="timeline-item"
+      *ngFor="let exp of experiences; let i = index"
+      [class.right]="i % 2 !== 0"
+    >
+      <div class="timeline-content">
+        <h3>{{ exp.company }}</h3>
+
+        <!-- If company has multiple roles -->
+        <div class="sub-roles" *ngIf="exp.subRoles?.length">
+          <div class="sub-role" *ngFor="let sub of exp.subRoles">
+            <span class="period">{{ sub.period }}</span>
+            <span class="title">— {{ sub.title }}</span>
+          </div>
+        </div>
+
+        <!-- Otherwise just show single role -->
+        <div *ngIf="!exp.subRoles?.length">
+          <span class="duration">{{ exp.duration }}</span>
+          <h4>{{ exp.role }}</h4>
+        </div>
+
+        <p>{{ exp.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

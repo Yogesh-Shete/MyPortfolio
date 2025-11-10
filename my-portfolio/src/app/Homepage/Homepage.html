@@ -4,11 +4,11 @@
   </div>
 
   <nav [class.open]="menuOpen">
-    <a routerLink="/" (click)="toggleMenu()">Home</a>
-    <a routerLink="/services" (click)="toggleMenu()">Experience</a>
-    <a routerLink="/services" (click)="toggleMenu()">Projects</a>
-    <a routerLink="/about" (click)="toggleMenu()">Education</a>
-    <a routerLink="/contact" (click)="toggleMenu()">Contact</a>
+    <a routerLink="/" (click)="scrollToSection('Home')">Home</a>
+    <a routerLink="/experience" (click)="scrollToSection('experience')">Experience</a>
+    <a routerLink="/services" (click)="scrollToSection('Projects')">Projects</a>
+    <a routerLink="/about" (click)="scrollToSection('Education')">Education</a>
+    <a routerLink="/contact" (click)="scrollToSection('Contact')">Contact</a>
   </nav>
 
   <div class="menu-toggle" (click)="toggleMenu()">
@@ -36,12 +36,17 @@
         software.
         I love solving real-world problems through clean, creative, and efficient code.
         <br /><br />
-        When I’m not coding, you’ll often find me sketching <strong>real-life portraits</strong> or geeking out about
-        the
-        latest tech innovations. I believe art and technology share the same spirit — creativity, precision, and impact.
+        <span *ngIf="isMobileView && !isExpanded" (click)="toggleExpanded(true)">Read More</span>
+        <span *ngIf="!isMobileView || isExpanded">
+          When I’m not coding, you’ll often find me sketching <strong>real-life portraits</strong> or geeking out about
+          the
+          latest tech innovations. I believe art and technology share the same spirit — creativity, precision, and impact.
+          <br /><br />
+          Always curious, always learning, and always open to new collaborations —
+          let’s connect and <strong>build something amazing together!</strong>
+        </span>
         <br /><br />
-        Always curious, always learning, and always open to new collaborations —
-        let’s connect and <strong>build something amazing together!</strong>
+        <span *ngIf="isMobileView && isExpanded" (click)="toggleExpanded(false)">Read Less</span>
       </p>
     </div>
 

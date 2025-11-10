@@ -1,0 +1,188 @@
+/* ===== Base Section ===== */
+.experience-section {
+  background: #222831;
+  color: #eeeeee;
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #00adb5;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  position: relative;
+  text-align: center;
+  font-family: "Stack Sans Notch", sans-serif;
+}
+
+/* ===== Timeline Layout ===== */
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #00adb5, #007b7f);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* ===== Timeline Items ===== */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+.timeline-content {
+  background: #2e343d;
+  border-left: 5px solid #00adb5;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0, 173, 181, 0.3);
+}
+
+.timeline-content h3 {
+  color: #00adb5;
+  margin-bottom: 0.3rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.timeline-content h4 {
+  color: #eeeeee;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-content .duration {
+  display: block;
+  font-size: 0.95rem;
+  color: #cccccc;
+  margin-bottom: 0.6rem;
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* ===== Connector Dots ===== */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 2.5rem;
+  right: -10px;
+  width: 18px;
+  height: 18px;
+  background: #00adb5;
+  border: 3px solid #222831;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item.right::before {
+  left: -10px;
+  right: auto;
+}
+
+.sub-roles {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sub-role {
+  font-size: 0.95rem;
+  color: #eeeeee;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.sub-role .period {
+  font-weight: 500;
+  color: #00adb5;
+}
+
+.sub-role .title {
+  font-style: italic;
+  color: #ccc;
+}
+
+
+/* ===== Responsive Design ===== */
+@media (max-width: 992px) {
+  .timeline-item {
+    width: 100%;
+    padding-left: 3.5rem;
+    padding-right: 1rem;
+  }
+
+  .timeline::before {
+    left: 20px;
+    transform: none;
+  }
+
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-item::before {
+    left: 10px;
+    right: auto;
+  }
+
+  .timeline-content {
+    background: #2b3139;
+    border-left: 4px solid #00adb5;
+  }
+}
+
+/* ===== Scroll Animation (optional) ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-content[data-aos] {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+.timeline-item:nth-child(odd) .timeline-content[data-aos] {
+  animation-delay: 0.2s;
+}
+.timeline-item:nth-child(even) .timeline-content[data-aos] {
+  animation-delay: 0.4s;
+}

@@ -6,7 +6,7 @@
   <nav [class.open]="menuOpen">
     <a routerLink="/home" (click)="scrollToSection('home')">Home</a>
     <a routerLink="/experience" (click)="scrollToSection('experience')">Experience</a>
-    <a routerLink="/services" (click)="scrollToSection('Projects')">Projects</a>
+    <a routerLink="/services" (click)="scrollToSection('projects')">Projects</a>
     <a routerLink="/about" (click)="scrollToSection('Education')">Education</a>
     <a routerLink="/contact" (click)="scrollToSection('Contact')">Contact</a>
   </nav>
@@ -37,7 +37,7 @@
         I love solving real-world problems through clean, creative, and efficient code.
         <br /><br />
         <span *ngIf="isMobileView && !isExpanded" (click)="toggleExpanded(true)">Read More</span>
-        <span *ngIf="!isMobileView || isExpanded">
+        <span *ngIf="(isMobileView && isExpanded) || !isMobileView">
           When I’m not coding, you’ll often find me sketching <strong>real-life portraits</strong> or geeking out about
           the
           latest tech innovations. I believe art and technology share the same spirit — creativity, precision, and impact.

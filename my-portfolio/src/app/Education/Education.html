@@ -1,0 +1,81 @@
+<section class="education-section" id="Education" aria-labelledby="education-title">
+  <h2 id="education-title" class="section-title">Education</h2>
+
+  <div class="tabs" role="tablist" aria-label="Education tabs">
+    <button
+      *ngFor="let e of education; let i = index"
+      class="tab"
+      role="tab"
+      [attr.aria-selected]="selectedIndex === i"
+      [attr.aria-controls]="'edu-panel-' + i"
+      [attr.id]="'edu-tab-' + i"
+      (click)="select(i)"
+      (keydown)="onTabKeydown($event, i)"
+      [class.active]="selectedIndex === i"
+      tabindex="{{ selectedIndex === i ? 0 : -1 }}"
+    >
+      <div class="tab-title">{{ e.institutionShort }}</div>
+      <div class="tab-sub">{{ e.duration }}</div>
+    </button>
+  </div>
+
+  <div class="panels">
+    <article
+      *ngFor="let e of education; let i = index"
+      class="panel"
+      role="tabpanel"
+      [attr.aria-labelledby]="'edu-tab-' + i"
+      [attr.id]="'edu-panel-' + i"
+      [hidden]="selectedIndex !== i"
+    >
+      <div class="panel-inner">
+        <h3 class="institution">{{ e.institution }}</h3>
+        <h4 class="degree">{{ e.degree }}</h4>
+        <span class="duration">{{ e.duration }}</span>
+
+        <p class="summary">{{ e.summary }}</p>
+
+        <div class="meta">
+          <div class="meta-row"><strong>CGPA:</strong> <span>{{ e.cgpa || '—' }}</span></div>
+          <div class="meta-row"><strong>Key topics:</strong>
+            <span class="chips">
+              <span class="chip" *ngFor="let t of e.topics">{{ t }}</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="read-more" (click)="openDetails(i)">Read more</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- optional detail modal (reusable) -->
+<div
+  class="edu-modal-backdrop"
+  *ngIf="modalOpen"
+  (click)="closeDetails()"
+  [attr.aria-hidden]="modalOpen ? 'false' : 'true'"
+>    <div class="edu-modal" role="dialog" aria-modal="true" (click)="$event.stopPropagation()">
+      <header class="modal-head">
+        <h3>{{ selectedEducation?.institution }}</h3>
+        <button class="modal-close" (click)="closeDetails()" aria-label="Close">&times;</button>
+      </header>
+
+      <div class="modal-body">
+        <h4>{{ selectedEducation?.degree }}</h4>
+        <span class="duration">{{ selectedEducation?.duration }}</span>
+        <p class="long-desc">{{ selectedEducation?.details }}</p>
+
+        <ul *ngIf="selectedEducation?.courses?.length" class="modal-bullets">
+          <li *ngFor="let c of selectedEducation?.courses">{{ c }}</li>
+        </ul>
+      </div>
+
+      <footer class="modal-footer">
+        <button class="btn-primary" (click)="closeDetails()">Close</button>
+      </footer>
+    </div>
+  </div>
+</section>

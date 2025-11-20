@@ -1,0 +1,58 @@
+<!-- projects-section.component.html -->
+<section class="experience-section projects-section" id="Projects" aria-labelledby="projects-title">
+  <h2 id="projects-title" class="section-title">Selected Projects</h2>
+
+  <div class="projects-grid" role="list">
+    <article
+      role="listitem"
+      class="project-card"
+      *ngFor="let p of projects; let i = index; trackBy: trackById"
+      [class.expanded]="expandedIndex === i"
+    >
+      <header class="card-head">
+        <h3 class="project-title">{{ p.title }}</h3>
+        <p class="project-sub">{{ p.subtitle }}</p>
+      </header>
+
+      <div class="card-body">
+        <p class="summary">{{ p.summary }}</p>
+
+        <div class="meta">
+          <span class="tech" *ngFor="let t of p.tech">{{ t }}</span>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button
+          class="read-more"
+          (click)="toggleExpand(i)"
+          [attr.aria-expanded]="expandedIndex === i"
+          [attr.aria-controls]="'project-details-' + i"
+        >
+          {{ expandedIndex === i ? 'Read Less' : 'Read More' }}
+        </button>
+      </div>
+
+      <!-- expandable details -->
+      <div
+        class="details"
+        id="project-details-{{ i }}"
+        [attr.aria-hidden]="expandedIndex === i ? 'false' : 'true'"
+        [style.maxHeight]="expandedIndex === i ? detailsMaxHeight : '0px'"
+      >
+        <div class="details-inner">
+          <p class="long-desc">{{ p.details }}</p>
+
+          <ul class="bullets" *ngIf="p.points?.length">
+            <li *ngFor="let pt of p.points">{{ pt }}</li>
+          </ul>
+
+          <div class="links">
+            <a *ngIf="p.live" [href]="p.live" target="_blank" rel="noopener">Live</a>
+            <a *ngIf="p.repo" [href]="p.repo" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

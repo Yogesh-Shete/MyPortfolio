@@ -1,0 +1,84 @@
+/* ContactMe.scss (validation-aware styles) */
+
+.contact-section {
+  width: 100%;
+  background: #222831;
+  color: #eeeeee;
+  padding: 3.5rem 0;
+  position: relative;
+  z-index: 3;
+}
+
+.contact-section .container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.section-title { color: #00adb5; font-size: 1.9rem; margin-bottom: 1.25rem; font-weight: 600; }
+
+.contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+
+/* Row with two columns */
+.contact-form .row { display: flex; gap: 1rem; align-items: flex-start; }
+.contact-form .row > label { flex: 1; }
+
+/* Labels */
+label { display: flex; flex-direction: column; font-size: 0.95rem; color: #dfeaea; }
+label .req { color: #ff6b6b; margin-left: 4px; font-weight: 700; }
+
+/* Inputs */
+input[type="text"], input[type="email"], input[type="file"], textarea {
+  background: #1f262b;
+  border: 1px solid rgba(255,255,255,0.04);
+  color: #fff;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Invalid state (outline + subtle shadow) */
+label.invalid input,
+label.invalid textarea,
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched,
+input.ng-invalid.ng-dirty,
+textarea.ng-invalid.ng-dirty {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.06);
+}
+
+/* Error text */
+.error small { color: #ffb3b3; }
+
+/* Textarea */
+textarea { min-height: 180px; resize: vertical; padding-top: 0.9rem; }
+
+/* File input */
+.file-label input[type="file"] { padding: 0.35rem 0; width: auto; }
+
+/* Actions */
+.actions { display: flex; justify-content: flex-end; margin-top: 0.5rem; }
+.send-btn {
+  background: #00adb5;
+  color: #072022;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.send-btn[disabled], .send-btn[aria-disabled="true"] { opacity: 0.6; cursor: not-allowed; }
+
+/* Status messages */
+.status.success { color: #8ae6e9; }
+.status.error { color: #ff9090; }
+
+/* Responsiveness */
+@media (max-width: 720px) {
+  .contact-form .row { flex-direction: column; }
+  .contact-section .container { padding: 0 1rem; }
+  .actions { justify-content: center; }
+}

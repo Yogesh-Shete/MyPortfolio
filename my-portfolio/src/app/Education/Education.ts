@@ -16,8 +16,8 @@ interface Education {
 
 @Component({
   selector: 'app-education',
-  templateUrl: './education.html',
-  styleUrls: ['./education.scss']
+  templateUrl: './Education.html',
+  styleUrls: ['./Education.scss']
 })
 export class EducationComponent {
   education: Education[] = [

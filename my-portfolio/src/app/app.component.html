@@ -1,24 +1,27 @@
-<section id="home" class="hero-section">
-  <app-homepage></app-homepage>
-</section>
 
-<section id="experience" class="experience-section">
-  <app-experience></app-experience>
-</section>
+<!-- Show the in-page sections only when isHome === true -->
+<ng-container *ngIf="isHome">
+  <app-navbar></app-navbar>
+  <section id="home" class="hero-section">
+    <app-homepage></app-homepage>
+  </section>
 
- <section id="projects" class="projects-section">
-  <app-projects></app-projects>
-</section>
+  <section id="experience" class="experience-section">
+    <app-experience></app-experience>
+  </section>
 
-<section id="education" class="education-section">
-  <app-education></app-education>
-</section>
+  <section id="projects" class="projects-section">
+    <app-projects></app-projects>
+  </section>
 
-<section id="contact" class="contact-section">
-  <app-contact-me></app-contact-me>
-</section>
+  <section id="education" class="education-section">
+    <app-education></app-education>
+  </section>
 
-<main style="padding: 2rem; text-align: center;">
-  <h1>Welcome to the Vibrant Menu Demo 🎉</h1>
-  <p>Resize the window to see the responsive header in action!</p>
-</main>
+  <section id="contact" class="contact-section">
+    <app-contact-me></app-contact-me>
+  </section>
+</ng-container>
+
+<!-- Top-level router outlet: routed pages render here and replace the above -->
+<router-outlet></router-outlet>

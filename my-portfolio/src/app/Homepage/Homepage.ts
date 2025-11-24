@@ -8,14 +8,12 @@ import { Router } from '@angular/router';
 })
 
 export class Homepage {
-    menuOpen = false;
-
     // New typing effect variables
     titles: string[] = ['Yogesh', 'Engineer', 'Developer', 'Artist'];
     displayedText = '';
-     isExpanded = false;
-  isMobileView = false;
-  private mobileBreakpoint = 600;
+    isExpanded = false;
+    isMobileView = false;
+    private mobileBreakpoint = 600;
 
     private currentTitleIndex = 0;
     private isDeleting = false;
@@ -31,12 +29,6 @@ export class Homepage {
 
     // Your existing methods (like toggleMenu) stay untouched
 
-    toggleMenu(sectionId?: string) {
-        this.menuOpen = !this.menuOpen;
-        if (sectionId) {
-            this.scrollToSection(sectionId);
-        }
-    }
 
     private typeEffect(): void {
         const currentTitle = this.titles[this.currentTitleIndex];
@@ -62,31 +54,21 @@ export class Homepage {
         setTimeout(() => this.typeEffect(), speed);
     }
 
-    scrollToSection(sectionId: string) {
-        // Give Angular time to load the route if it's different
-        setTimeout(() => {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                const offset = -70; // adjust based on your navbar height
-                const y = element.getBoundingClientRect().top + window.scrollY + offset;
-                window.scrollTo({ top: y, behavior: 'smooth' });
-            }
-        }, 200);
+
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event: Event) {
+        this.checkScreenSize();
     }
 
-     @HostListener('window:resize', ['$event'])
-    onResize(event: Event) {
-    this.checkScreenSize();
-  }
+    checkScreenSize() {
+        this.isMobileView = window.innerWidth < this.mobileBreakpoint;
+        console.log('isMobileView:', this.isMobileView);
+    }
 
-  checkScreenSize() {
-    this.isMobileView = window.innerWidth < this.mobileBreakpoint;
-    console.log('isMobileView:', this.isMobileView);
-  }
-
-  toggleExpanded(flag: boolean) {
-    this.isExpanded = flag;
-  }
+    toggleExpanded(flag: boolean) {
+        this.isExpanded = flag;
+    }
 
 
 }

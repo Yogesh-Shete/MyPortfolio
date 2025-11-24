@@ -22,30 +22,30 @@ interface Education {
 export class EducationComponent {
   education: Education[] = [
     {
+      id: 'eng',
+      institutionShort: 'Engineering',
+      institution: 'PES Modern College of Engineering (SPPU)',
+      degree: 'B.E. — Computer Engineering',
+      duration: '2020 — 2024',
+      summary: 'Graduated with CGPA 8.88, focused on software engineering and systems.',
+      details:
+        'During engineering completed projects in web development, algorithms, interned at companies and collaborated on team projects. Gained practical exposure to real-world engineering workflows.',
+      topics: ['DSA', 'OS', 'DBMS', 'Web Dev', 'SQL', 'OOP'],
+      courses: ['Data Structures', 'Operating Systems', 'Databases'],
+      cgpa: '8.88'
+    },
+    {
       id: 'junior',
       institutionShort: 'Junior College',
-      institution: 'ABC Junior College',
+      institution: 'PES Modern College of Arts, Science and Commerce',
       degree: 'HSC — Science (PCM)',
-      duration: '2016 — 2018',
+      duration: '2018 — 2020',
       summary: 'Completed Higher Secondary with strong foundation in Physics, Chemistry & Maths.',
       details:
         'Focused on core science subjects with practical labs and project work. Was active in science club and coding workshops. Built fundamentals that helped later in engineering.',
       topics: ['Physics', 'Mathematics', 'Chemistry'],
       courses: ['Advanced Maths', 'Physics Lab'],
-      cgpa: '91%'
-    },
-    {
-      id: 'eng',
-      institutionShort: 'Engineering',
-      institution: 'PES Modern College of Engineering (SPPU)',
-      degree: 'B.E. — Computer Engineering',
-      duration: '2018 — 2022',
-      summary: 'Graduated with CGPA 8.88, focused on software engineering and systems.',
-      details:
-        'During engineering completed projects in web development, algorithms and image processing, interned at companies and collaborated on team projects. Gained practical exposure to real-world engineering workflows.',
-      topics: ['DSA', 'OS', 'DBMS', 'Web Dev'],
-      courses: ['Data Structures', 'Operating Systems', 'Databases'],
-      cgpa: '8.88'
+      cgpa: '78.77%'
     }
   ];
 

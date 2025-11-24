@@ -1,0 +1,74 @@
+<div class="artworks-page">
+  <div class="topbar">
+    <button class="back-btn" (click)="goBack()" aria-label="Back to home">
+      ← Back to Home
+    </button>
+    <h1 class="page-title">Artworks</h1>
+  </div>
+
+  <p class="page-intro">Click a thumbnail to view Reference vs Actual artwork.</p>
+
+  <section class="grid">
+    <article
+      class="thumb"
+      *ngFor="let art of artworks; let i = index"
+      (click)="openModal(i)"
+      role="button"
+      tabindex="0"
+      (keydown.enter)="openModal(i)"
+      [attr.aria-label]="'Open ' + art.title"
+    >
+      <div class="thumb__image-wrap">
+        <img
+          [src]="art.thumbSrc || art.actualSrc"
+          [alt]="art.title + ' thumbnail'"
+          loading="lazy"
+        />
+      </div>
+      <div class="thumb__meta">
+        <h3>{{ art.title }}</h3>
+        <small>{{ art.year }} • {{ art.medium }}</small>
+      </div>
+    </article>
+  </section>
+
+  <!-- Modal overlay: render only when showModal is true -->
+  <div
+    class="modal__overlay"
+    *ngIf="showModal"
+    (click)="onOverlayClick($event)"
+    [attr.aria-hidden]="(!showModal) ? 'true' : 'false'"
+    role="dialog"
+    aria-modal="true"
+  >
+    <!-- Only render modal internals when a valid selection exists -->
+    <div class="modal" *ngIf="selectedIndex >= 0">
+      <button class="modal__close-btn" (click)="closeModal()" aria-label="Close modal">
+        <span class="close-icon" aria-hidden="true">✕</span>
+      </button>
+
+      <div class="modal__content">
+        <div class="modal__column">
+          <h4>Reference</h4>
+          <div class="image-wrap">
+            <img [src]="artworks[selectedIndex].refSrc" [alt]="'Reference of ' + artworks[selectedIndex].title" />
+          </div>
+        </div>
+
+        <div class="modal__column">
+          <h4>Actual</h4>
+          <div class="image-wrap">
+            <img [src]="artworks[selectedIndex].actualSrc" [alt]="'Actual of ' + artworks[selectedIndex].title" />
+          </div>
+        </div>
+      </div>
+
+      <div class="modal__footer">
+        <div class="meta">
+          <strong>{{ artworks[selectedIndex].title }}</strong>
+          <span>{{ artworks[selectedIndex].year }} • {{ artworks[selectedIndex].medium }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<header class="navbar">
+  <div class="logo">
+    <span class="highlight">Yogesh Shete</span>
+  </div>
+
+  <nav [class.open]="menuOpen">
+    <a routerLink="/home" (click)="scrollToSection('home')">Home</a>
+    <a routerLink="/experience" (click)="scrollToSection('experience')">Experience</a>
+    <a routerLink="/services" (click)="scrollToSection('projects')">Projects</a>
+    <a routerLink="/about" (click)="scrollToSection('Education')">Education</a>
+    <!-- <a routerLink="artworks">Artworks</a> -->
+    <a (click)="navigateToArtwork()">Artworks</a>
+    <a routerLink="/contact" (click)="scrollToSection('Contact')">Contact</a>
+  </nav>
+
+  <div class="menu-toggle" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>

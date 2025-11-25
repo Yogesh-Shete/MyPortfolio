@@ -63,7 +63,6 @@ export class Homepage {
 
     checkScreenSize() {
         this.isMobileView = window.innerWidth < this.mobileBreakpoint;
-        console.log('isMobileView:', this.isMobileView);
     }
 
     toggleExpanded(flag: boolean) {

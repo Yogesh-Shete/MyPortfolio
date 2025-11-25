@@ -2,14 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #222831; /* pure white */
-  /* color: #333; */
+  background: #222831;
   padding: 0.8rem 2rem;
   position: sticky;
   top: 0;
-  z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* subtle shadow */
-  /* border-bottom: 2px solid #eee; */
+  z-index: 100; /* keep high so overlay sits below nav but above page */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .logo {
@@ -48,6 +46,14 @@ nav a:hover {
   color: #0d5589;
 }
 
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.356);
+  z-index: 90; /* less than nav (which should be >90) so nav stays on top */
+}
+
+
 /* ===== Mobile Menu Toggle ===== */
 .menu-toggle {
   display: none;
@@ -58,7 +64,7 @@ nav a:hover {
 .menu-toggle span {
   height: 3px;
   width: 25px;
-  background: rgb(133, 4, 4);
+  background: rgb(53, 203, 249);
   margin: 4px 0;
   border-radius: 2px;
   transition: 0.4s;
@@ -67,16 +73,17 @@ nav a:hover {
 /* ===== Responsive Styles ===== */
 @media (max-width: 768px) {
   nav {
-    position: absolute;
+    position: fixed;
     top: 60px;
     right: 0;
-    background: linear-gradient(90deg, #b99ca3, #ff4b2b);
+    background: linear-gradient(90deg, #4c596d, #4c596d);
     flex-direction: column;
     align-items: flex-start;
     width: 200px;
     padding: 1rem;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
+    z-index: 100; /* above overlay */
   }
 
   nav.open {

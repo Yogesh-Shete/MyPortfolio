@@ -3,17 +3,21 @@
     <span class="highlight">Yogesh Shete</span>
   </div>
 
-  <nav [class.open]="menuOpen">
-    <a routerLink="/home" (click)="scrollToSection('home')">Home</a>
-    <a routerLink="/experience" (click)="scrollToSection('experience')">Experience</a>
-    <a routerLink="/services" (click)="scrollToSection('projects')">Projects</a>
-    <a routerLink="/about" (click)="scrollToSection('Education')">Education</a>
+  <!-- overlay: dim the page and capture outside clicks -->
+  <div class="overlay" *ngIf="menuOpen" (click)="closeMenu()"></div>
+
+  <!-- nav ref for outside-click checks -->
+  <nav #navRef [class.open]="menuOpen">
+    <a (click)="menuItemClick('home')">Home</a>
+    <a (click)="menuItemClick('experience')">Experience</a>
+    <a (click)="menuItemClick('projects')">Projects</a>
+    <a (click)="menuItemClick('Education')">Education</a>
     <!-- <a routerLink="artworks">Artworks</a> -->
     <a (click)="navigateToArtwork()">Artworks</a>
-    <a routerLink="/contact" (click)="scrollToSection('Contact')">Contact</a>
+    <a (click)="menuItemClick('Contact')">Contact</a>
   </nav>
 
-  <div class="menu-toggle" (click)="toggleMenu()">
+  <div class="menu-toggle" (click)="toggleMenu($event)">
     <span></span>
     <span></span>
     <span></span>

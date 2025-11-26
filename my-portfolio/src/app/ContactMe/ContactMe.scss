@@ -1,12 +1,12 @@
-/* ContactMe.scss (validation-aware styles) */
-
 .contact-section {
-  width: 100%;
-  background: #222831;
+  z-index: 2;
+   background: #222831;    
   color: #eeeeee;
-  padding: 3.5rem 0;
-  position: relative;
-  z-index: 3;
+  padding: 3rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .contact-section .container {
@@ -16,9 +16,9 @@
   box-sizing: border-box;
 }
 
-.section-title { color: #00adb5; font-size: 1.9rem; margin-bottom: 1.25rem; font-weight: 600; }
+.section-title { color: #00adb5; font-size: 1.9rem; margin-bottom: 1.25rem; font-weight: 600; position: relative;}
 
-.contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+.contact-form { display: flex; flex-direction: column; gap: 1.1rem; position: relative; }
 
 /* Row with two columns */
 .contact-form .row { display: flex; gap: 1rem; align-items: flex-start; }
@@ -29,9 +29,9 @@ label { display: flex; flex-direction: column; font-size: 0.95rem; color: #dfeae
 label .req { color: #ff6b6b; margin-left: 4px; font-weight: 700; }
 
 /* Inputs */
-input[type="text"], input[type="email"], input[type="file"], textarea {
-  background: #1f262b;
-  border: 1px solid rgba(255,255,255,0.04);
+input[type="text"], input[type="email"], input[type="subject"], textarea {
+  background: #25282b;
+  border: 1.5px solid rgba(98, 94, 94, 0.427);
   color: #fff;
   padding: 0.6rem 0.75rem;
   border-radius: 8px;

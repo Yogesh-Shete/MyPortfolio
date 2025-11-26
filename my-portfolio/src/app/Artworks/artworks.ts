@@ -12,13 +12,17 @@ interface Artwork {
 }
 
 @Component({
-    selector: 'app-artworks',
-    templateUrl: './artworks.html',
-    styleUrls: ['./artworks.scss']
+  selector: 'app-artworks',
+  templateUrl: './artworks.html',
+  styleUrls: ['./artworks.scss']
 })
 
 
 export class ArtworksComponent {
+
+  isMobileView = false;
+  private mobileBreakpoint = 600;
+
   artworks: Artwork[] = [
     {
       id: 'art1',
@@ -37,24 +41,40 @@ export class ArtworksComponent {
       thumbSrc: 'assets/Solo_Girl2.jpg',
       year: '2025',
       medium: 'Pencil on Paper'
-    },
-    // ... add more
+    }
   ];
 
   showModal = false;
   selectedIndex = -1;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+
+  }
 
   openModal(index: number) {
     this.selectedIndex = index;
     this.showModal = true;
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = this.isMobileView ? '' : 'hidden';
     setTimeout(() => {
       const closeBtn = document.querySelector<HTMLButtonElement>('.modal__close-btn');
       closeBtn?.focus();
     }, 0);
   }
+
+  // artworks.component.ts (add inside the component class)
+  modalImageSrc(): string {
+    const art = this.artworks?.[this.selectedIndex];
+    if (!art) return '';
+
+    // On mobile prefer the actual (full) artwork image.
+    if (this.isMobileView) {
+      return art.actualSrc || art.thumbSrc || art.refSrc || '';
+    }
+
+    // Desktop: prefer reference/thumb when available.
+    return art.refSrc || art.thumbSrc || art.actualSrc || '';
+  }
+
 
   closeModal() {
     this.showModal = false;
@@ -75,5 +95,15 @@ export class ArtworksComponent {
 
   goBack() {
     this.router.navigateByUrl('/');
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    this.isMobileView = window.innerWidth < this.mobileBreakpoint;
+    console.log('isMobileView:', this.isMobileView);
   }
 }

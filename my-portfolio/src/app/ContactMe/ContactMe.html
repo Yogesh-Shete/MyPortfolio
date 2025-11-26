@@ -3,25 +3,12 @@
   <div class="container">
     <h2 id="contact-title" class="section-title">Contact Me</h2>
 
-    <form
-      class="contact-form"
-      #contactForm="ngForm"
-      (ngSubmit)="onSubmit(contactForm)"
-      novalidate
-      autocomplete="off"
-    >
+    <form class="contact-form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate autocomplete="off">
       <div class="row">
         <label [class.invalid]="(name.invalid && (name.touched || submitted))">
           <span>Name <strong class="req">*</strong></span>
-          <input
-            name="name"
-            type="text"
-            [(ngModel)]="model.name"
-            #name="ngModel"
-            required
-            aria-required="true"
-            [attr.aria-invalid]="name.invalid && (name.touched || submitted) ? 'true' : 'false'"
-          />
+          <input name="name" type="text" [(ngModel)]="model.name" #name="ngModel" required aria-required="true"
+            [attr.aria-invalid]="name.invalid && (name.touched || submitted) ? 'true' : 'false'" />
           <div class="error" *ngIf="name.invalid && (name.touched || submitted)">
             <small *ngIf="name.errors?.['required']">Name is required.</small>
           </div>
@@ -29,15 +16,8 @@
 
         <label [class.invalid]="(email.invalid && (email.touched || submitted))">
           <span>Email <strong class="req">*</strong></span>
-          <input
-            name="email"
-            type="email"
-            [(ngModel)]="model.email"
-            #email="ngModel"
-            required
-            aria-required="true"
-            [attr.aria-invalid]="email.invalid && (email.touched || submitted) ? 'true' : 'false'"
-          />
+          <input name="email" type="email" [(ngModel)]="model.email" #email="ngModel" required aria-required="true"
+            [attr.aria-invalid]="email.invalid && (email.touched || submitted) ? 'true' : 'false'" />
           <div class="error" *ngIf="email.invalid && (email.touched || submitted)">
             <small *ngIf="email.errors?.['required']">Email is required.</small>
             <small *ngIf="email.errors?.['email']">Please enter a valid email address.</small>
@@ -47,37 +27,20 @@
 
       <label class="full-width">
         <span>Subject</span>
-        <input name="subject" [(ngModel)]="model.subject" />
+        <input name="subject" type="subject" [(ngModel)]="model.subject" />
       </label>
 
       <label class="full-width" [class.invalid]="(message.invalid && (message.touched || submitted))">
         <span>Message <strong class="req">*</strong></span>
-        <textarea
-          name="message"
-          rows="6"
-          [(ngModel)]="model.message"
-          #message="ngModel"
-          required
-          aria-required="true"
-          [attr.aria-invalid]="message.invalid && (message.touched || submitted) ? 'true' : 'false'"
-        ></textarea>
+        <textarea name="message" rows="6" [(ngModel)]="model.message" #message="ngModel" required aria-required="true"
+          [attr.aria-invalid]="message.invalid && (message.touched || submitted) ? 'true' : 'false'"></textarea>
         <div class="error" *ngIf="message.invalid && (message.touched || submitted)">
           <small *ngIf="message.errors?.['required']">Please enter a message.</small>
         </div>
       </label>
 
-      <!-- <label class="file-label">
-        <span>Attachment (optional)</span>
-        <input name="attachment" type="file" (change)="onFileChange($event)" />
-      </label> -->
-
       <div class="actions">
-        <button
-          type="submit"
-          [disabled]="sending"
-          class="send-btn"
-          [attr.aria-disabled]="sending ? 'true' : 'false'"
-        >
+        <button type="submit" [disabled]="sending" class="send-btn" [attr.aria-disabled]="sending ? 'true' : 'false'">
           {{ sending ? 'Sending…' : 'Send Message' }}
         </button>
       </div>

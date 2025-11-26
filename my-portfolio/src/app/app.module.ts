@@ -11,6 +11,7 @@ import { EducationComponent } from './Education/Education';
 import { ContactMeComponent } from './ContactMe/ContactMe';
 import { NavbarComponent } from './Navbar/Navbar';
 import { ArtworksComponent } from './Artworks/artworks';
+import { BackgroundComponent } from './Background/background';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ArtworksComponent } from './Artworks/artworks';
     EducationComponent,
     ContactMeComponent,
     NavbarComponent,
-    ArtworksComponent
+    ArtworksComponent,
+    BackgroundComponent
   ],
   imports: [
     BrowserModule,

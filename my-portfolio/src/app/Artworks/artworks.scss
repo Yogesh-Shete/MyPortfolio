@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+.testclass {
+    position: relative;
+}
+
 /* page wrapper (ensure HTML root has .artworks-page) */
 .artworks-page {
     width: 100%;
@@ -247,4 +251,65 @@
         align-items: flex-start;
         gap: 0.5rem;
     }
+}
+
+/* ===== Mobile stacking: show Reference + Actual one below the other ===== */
+
+/* base modal uses grid columns for desktop (keeps existing look) */
+.modal__content {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr; /* desktop: 2 columns */
+  padding: 0.6rem;
+  align-items: start;
+}
+
+/* When modal has .vertical (mobile) switch to single column stacking */
+.modal.vertical .modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.5rem;
+}
+
+/* Ensure both columns fill width in vertical mode */
+.modal.vertical .modal__column {
+  width: 100%;
+  flex: none;
+  margin-bottom: 0;
+}
+
+/* Image sizing: smaller heights on mobile to keep footer reachable */
+.modal.vertical .modal__column .image-wrap {
+  min-height: 30vh;
+  max-height: 56vh;
+  padding: 0.5rem;
+  overflow: auto;
+}
+
+.modal.vertical .modal__column .image-wrap img {
+  max-height: 56vh;
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Keep footer accessible; allow content scrolling if content taller than viewport */
+.modal.vertical .modal__content {
+  max-height: calc(100vh - 140px); /* leaves space for header/footer/close btn */
+  overflow: auto;
+}
+
+/* keep close button reachable on mobile */
+.modal.vertical .modal__close-btn {
+  top: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+}
+
+/* optional minor tweak: slightly different background on mobile for clarity */
+@media (max-width: 720px) {
+  .modal {
+    background: #1b1f22;
+  }
 }

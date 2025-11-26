@@ -1,0 +1,36 @@
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+/* your inner background visuals */
+.bg-root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* example gradient + scanlines from Option A */
+.gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #0f1724 0%, #072029 30%, #092b2e 60%, #0a1020 100%);
+  animation: gradientShift 12s linear infinite;
+  opacity: 0.9;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(transparent 90%, rgba(255, 255, 255, 0.02) 100%);
+  background-size: 100% 6px;
+  animation: scan 6s linear infinite;
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
+
+/* keyframes etc. (copy from earlier Option A) */

@@ -1,315 +1,54 @@
-:host {
-    display: block;
-    min-height: 100vh;
-    /* fill the viewport */
-    background: #222831;
-    /* same as your education section */
-    color: #eeeeee;
-    padding: 3rem 5%;
-    /* your preferred outer margins */
-    box-sizing: border-box;
+:host{display:block;min-height:100vh;background:#222831;color:#eeeeee;padding:3rem 5%;box-sizing:border-box}
+.testclass{position:relative}
+
+/* page wrapper */
+.artworks-page{width:100%}
+.artworks-page .topbar{display:flex;gap:1rem;align-items:center;margin-bottom:1rem;justify-content:space-between}
+.artworks-page .topbar .left{display:flex;gap:1rem;align-items:center}
+.back-btn{background:transparent;border:1px solid rgba(255,255,255,0.04);color:#00adb5;padding:.45rem .9rem;border-radius:10px;cursor:pointer;font-weight:700;letter-spacing:.2px;transition:transform .12s,background-color .12s}
+.back-btn:hover{transform:translateX(-4px);background:rgba(0,173,181,0.04)}
+.page-title{margin:0;font-size:1.3rem;color:#00adb5;font-weight:700}
+.page-intro{color:rgba(238,238,238,0.75);margin-bottom:1.2rem}
+
+/* grid of thumbnails */
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.thumb{background:#1f262b;color:#eeeeee;border-radius:12px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform .14s,box-shadow .14s,border-color .14s;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 22px rgba(0,0,0,0.45)}
+.thumb:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.55);border-color:rgba(0,173,181,0.06)}
+.thumb__image-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.06))}
+.thumb__image-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .28s}
+.thumb__meta{padding:.8rem 1rem;display:flex;flex-direction:column;gap:.25rem}
+.thumb__meta h3{margin:0;font-size:1rem;color:#00adb5;font-weight:700}
+.thumb__meta small{color:rgba(238,238,238,0.65);font-size:.88rem}
+
+/* modal overlay & content */
+.modal__overlay{position:fixed;inset:0;background:rgba(3,6,12,0.7);z-index:2000;display:flex;align-items:center;justify-content:center;padding:1.5rem;animation:fadeIn .16s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{width:100%;max-width:1100px;background:#222831;color:#eeeeee;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6);overflow:hidden;position:relative;padding:1rem}
+.modal__close-btn{position:absolute;top:12px;right:12px;border:none;background:#00adb5;color:#0b0b0b;width:44px;height:44px;border-radius:50%;cursor:pointer;display:grid;place-items:center;font-size:1.05rem;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,0.45);transition:transform .12s}
+.modal__close-btn:hover{transform:scale(1.06);opacity:.95}
+
+/* content columns (desktop) */
+.modal__content{display:grid;gap:1rem;grid-template-columns:1fr 1fr;padding:.6rem;align-items:flex-start}
+.modal__column h4{margin:0 0 .6rem 0;font-size:.95rem;color:#00adb5;font-weight:700}
+.image-wrap{background:#121417;border-radius:10px;overflow:hidden;display:grid;place-items:center;min-height:320px;padding:.8rem}
+.image-wrap img{max-width:100%;max-height:64vh;object-fit:contain;display:block}
+
+.modal__footer{display:flex;justify-content:space-between;align-items:center;padding:.65rem 1rem;border-top:1px solid rgba(255,255,255,0.04)}
+.modal__footer .meta{display:flex;gap:.75rem;align-items:center;color:rgba(238,238,238,0.9)}
+.modal__footer .meta strong{color:#00adb5;font-weight:700}
+
+/* responsive adjustments */
+@media (max-width:880px){
+  .modal__content{grid-template-columns:1fr}
+  :host .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  .artworks-page .topbar{flex-direction:column;align-items:flex-start;gap:.5rem}
 }
 
-.testclass {
-    position: relative;
-}
+/* vertical stacking class for mobile mode */
+.modal.vertical .modal__content{display:flex;flex-direction:column;gap:.75rem;padding:.5rem;max-height:calc(100vh - 140px);overflow:auto}
+.modal.vertical .modal__column{width:100%;flex:none;margin-bottom:0}
+.modal.vertical .modal__column .image-wrap{min-height:30vh;max-height:56vh;padding:.5rem;overflow:auto}
+.modal.vertical .modal__column .image-wrap img{max-height:56vh;width:100%;object-fit:contain}
+.modal.vertical .modal__close-btn{top:8px;right:8px;width:40px;height:40px}
 
-/* page wrapper (ensure HTML root has .artworks-page) */
-.artworks-page {
-    width: 100%;
-
-    .topbar {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        margin-bottom: 1rem;
-        justify-content: space-between;
-
-        .left {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .back-btn {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            color: #00adb5;
-            padding: 0.45rem 0.9rem;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 700;
-            letter-spacing: 0.2px;
-            transition: transform .12s ease, background-color .12s;
-
-            &:hover {
-                transform: translateX(-4px);
-                background: rgba(0, 173, 181, 0.04);
-            }
-        }
-
-        .page-title {
-            margin: 0;
-            font-size: 1.3rem;
-            color: #00adb5;
-            font-weight: 700;
-        }
-    }
-
-    .page-intro {
-        color: rgba(238, 238, 238, 0.75);
-        margin-bottom: 1.2rem;
-    }
-
-    /* grid of thumbnails */
-    .grid {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    }
-
-    .thumb {
-        background: #1f262b;
-        /* matches your tab bg */
-        color: #eeeeee;
-        border-radius: 12px;
-        overflow: hidden;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        transition: transform .14s ease, box-shadow .14s ease, border-color .14s;
-        border: 1px solid rgba(255, 255, 255, 0.03);
-        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
-
-        &:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-            border-color: rgba(0, 173, 181, 0.06);
-        }
-
-        .thumb__image-wrap {
-            width: 100%;
-            aspect-ratio: 4/3;
-            overflow: hidden;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.06));
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-                transition: transform .28s ease;
-            }
-        }
-
-        .thumb__meta {
-            padding: 0.8rem 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-
-            h3 {
-                margin: 0;
-                font-size: 1rem;
-                color: #00adb5;
-                font-weight: 700;
-            }
-
-            small {
-                color: rgba(238, 238, 238, 0.65);
-                font-size: 0.88rem;
-            }
-        }
-    }
-}
-
-/* Modal overlay & content — styled like your education modal but brighter */
-.modal__overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(3, 6, 12, 0.7);
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    animation: fadeIn .16s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0
-    }
-
-    to {
-        opacity: 1
-    }
-}
-
-.modal {
-    width: 100%;
-    max-width: 1100px;
-    background: #222831;
-    /* same as your education background */
-    color: #eeeeee;
-    border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    overflow: hidden;
-    position: relative;
-    padding: 1rem;
-
-    .modal__close-btn {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        border: none;
-        background: #00adb5;
-        color: #0b0b0b;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: grid;
-        place-items: center;
-        font-size: 1.05rem;
-        font-weight: 800;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-        transition: transform .12s ease;
-
-        &:hover {
-            transform: scale(1.06);
-            opacity: 0.95;
-        }
-    }
-
-    .modal__content {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: 1fr 1fr;
-        padding: 0.6rem;
-
-        .modal__column {
-            h4 {
-                margin: 0 0 0.6rem 0;
-                font-size: 0.95rem;
-                color: #00adb5;
-                font-weight: 700;
-            }
-
-            .image-wrap {
-                background: #121417;
-                border-radius: 10px;
-                overflow: hidden;
-                display: grid;
-                place-items: center;
-                min-height: 320px;
-                padding: 0.8rem;
-
-                img {
-                    max-width: 100%;
-                    max-height: 64vh;
-                    object-fit: contain;
-                    display: block;
-                }
-            }
-        }
-    }
-
-    .modal__footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.65rem 1rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.04);
-
-        .meta {
-            display: flex;
-            gap: 0.75rem;
-            align-items: center;
-            color: rgba(238, 238, 238, 0.9);
-
-            strong {
-                color: #00adb5;
-                font-weight: 700;
-            }
-        }
-    }
-}
-
-/* responsive adjustments to match your site's mobile behavior */
-@media (max-width: 880px) {
-    .modal__content {
-        grid-template-columns: 1fr;
-    }
-
-    :host .grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    }
-
-    .artworks-page .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-}
-
-/* ===== Mobile stacking: show Reference + Actual one below the other ===== */
-
-/* base modal uses grid columns for desktop (keeps existing look) */
-.modal__content {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr 1fr; /* desktop: 2 columns */
-  padding: 0.6rem;
-  align-items: start;
-}
-
-/* When modal has .vertical (mobile) switch to single column stacking */
-.modal.vertical .modal__content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding: 0.5rem;
-}
-
-/* Ensure both columns fill width in vertical mode */
-.modal.vertical .modal__column {
-  width: 100%;
-  flex: none;
-  margin-bottom: 0;
-}
-
-/* Image sizing: smaller heights on mobile to keep footer reachable */
-.modal.vertical .modal__column .image-wrap {
-  min-height: 30vh;
-  max-height: 56vh;
-  padding: 0.5rem;
-  overflow: auto;
-}
-
-.modal.vertical .modal__column .image-wrap img {
-  max-height: 56vh;
-  width: 100%;
-  object-fit: contain;
-}
-
-/* Keep footer accessible; allow content scrolling if content taller than viewport */
-.modal.vertical .modal__content {
-  max-height: calc(100vh - 140px); /* leaves space for header/footer/close btn */
-  overflow: auto;
-}
-
-/* keep close button reachable on mobile */
-.modal.vertical .modal__close-btn {
-  top: 8px;
-  right: 8px;
-  width: 40px;
-  height: 40px;
-}
-
-/* optional minor tweak: slightly different background on mobile for clarity */
-@media (max-width: 720px) {
-  .modal {
-    background: #1b1f22;
-  }
-}
+@media (max-width:720px){.modal{background:#1b1f22}}

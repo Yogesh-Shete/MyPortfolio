@@ -35,7 +35,7 @@
           <div class="modal__column reference-col">
             <h4>Reference</h4>
             <div class="image-wrap">
-              <img [src]="artworks[selectedIndex]?.refSrc" [alt]="'Reference of ' + artworks[selectedIndex]?.title" />
+              <img [src]="artworks[selectedIndex].refSrc" [alt]="'Reference of ' + artworks[selectedIndex].title" />
             </div>
           </div>
 
@@ -43,15 +43,15 @@
           <div class="modal__column actual-col">
             <h4>Actual</h4>
             <div class="image-wrap">
-              <img [src]="artworks[selectedIndex]?.actualSrc" [alt]="'Actual of ' + artworks[selectedIndex]?.title" />
+              <img [src]="artworks[selectedIndex].actualSrc" [alt]="'Actual of ' + artworks[selectedIndex].title" />
             </div>
           </div>
         </div>
 
         <div class="modal__footer">
           <div class="meta">
-            <strong>{{ artworks[selectedIndex]?.title }}</strong>
-            <span>{{ artworks[selectedIndex]?.year }} • {{ artworks[selectedIndex]?.medium }}</span>
+            <strong>{{ artworks[selectedIndex].title }}</strong>
+            <span>{{ artworks[selectedIndex].year }} • {{ artworks[selectedIndex].medium }}</span>
           </div>
         </div>
       </div>

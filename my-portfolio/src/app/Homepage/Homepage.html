@@ -1,5 +1,3 @@
-
-
 <!-- New hero section starts here -->
 <section class="hero-section">
   <div class="hero-content">
@@ -10,26 +8,25 @@
       </h1>
 
       <p class="intro">
-        Hey there! I'm <strong>Yogesh Shete</strong> — a <strong>Computer Engineering graduate</strong> from
-        PES Modern College of Engineering (SPPU), where I wrapped up my degree with a CGPA of <strong>8.88</strong>.
+        Hi! I’m a <strong>Software Engineer at Yardi Software India</strong>, passionate about building clean,
+        reliable, and creative solutions.
         <br /><br />
-        Currently, I’m working as a <strong>Software Engineer Trainee</strong> at
-        <strong>Yardi Software India Pvt. Ltd.</strong>, where I get to transform ideas into meaningful, working
-        software.
-        I love solving real-world problems through clean, creative, and efficient code.
-        <br /><br />
+
         <span *ngIf="isMobileView && !isExpanded" (click)="toggleExpanded(true)">Read More</span>
+
         <span *ngIf="(isMobileView && isExpanded) || !isMobileView">
-          When I’m not coding, you’ll often find me sketching <strong>real-life portraits</strong> or geeking out about
-          the
-          latest tech innovations. I believe art and technology share the same spirit — creativity, precision, and impact.
+          I completed my <strong>Computer Engineering</strong> degree with a
+          <strong>CGPA of 8.88</strong> from PES Modern College of Engineering, SPPU.
           <br /><br />
-          Always curious, always learning, and always open to new collaborations —
-          let’s connect and <strong>build something amazing together!</strong>
+
+          Outside of coding, I love sketching <strong>real-life portraits</strong> and staying curious
+          about the latest trends in tech.
+          <br /><br />
+
+          <span *ngIf="isMobileView && isExpanded" (click)="toggleExpanded(false)">Read Less</span>
         </span>
-        <br /><br />
-        <span *ngIf="isMobileView && isExpanded" (click)="toggleExpanded(false)">Read Less</span>
       </p>
+
     </div>
 
 

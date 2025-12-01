@@ -1,16 +1,5 @@
 /* ===== Hero Section (Light Background) ===== */
-.hero-section {
-  width: 100%;
-  min-height: calc(100vh - 70px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #222831;
-  /* light gray background */
-  color: #333;
-  padding: 1rem 2rem;
-  box-sizing: border-box;
-}
+.hero-section {width: 100%;min-height: calc(100vh - 70px);display: flex;align-items: center;justify-content: center;background: #222831;color: #333;padding: 1rem 2rem;box-sizing: border-box;}
 
 /* Container */
 .hero-content {
@@ -93,7 +82,7 @@
 }
 
 
-.clickable-text {color: #06e2ee;}
+.clickable-text {color: #06e2ee; font-size: 1.5rem;}
 .clickable-text:hover {cursor: pointer; color: #096969fe;}
 
 /* ===== Right Image ===== */

@@ -69,5 +69,7 @@ export class Homepage {
         this.isExpanded = flag;
     }
 
-
+    goToArtworks() {
+        this.Router.navigateByUrl('/artworks');
+    }
 }

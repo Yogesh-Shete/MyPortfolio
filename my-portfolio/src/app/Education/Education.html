@@ -36,7 +36,8 @@
         <p class="summary">{{ e.summary }}</p>
 
         <div class="meta">
-          <div class="meta-row"><strong>CGPA:</strong> <span>{{ e.cgpa || '—' }}</span></div>
+          <div class="meta-row" *ngIf="e.id == 'eng'"><strong>CGPA:</strong> <span>{{ e.cgpa || '—' }}</span></div>
+          <div class="meta-row" *ngIf="e.id != 'eng'"><strong>Percentage:</strong> <span>{{ e.cgpa || '—' }}</span></div>
           <div class="meta-row"><strong>Key topics:</strong>
             <span class="chips">
               <span class="chip" *ngFor="let t of e.topics">{{ t }}</span>

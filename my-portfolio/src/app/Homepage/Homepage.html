@@ -22,6 +22,7 @@
           Outside of coding, I love sketching <strong>real-life portraits</strong> and staying curious
           about the latest trends in tech.
           <br /><br />
+          <span class="clickable-text" (click)="goToArtworks()">Check out my artworks here.</span>
 
           <span *ngIf="isMobileView && isExpanded" (click)="toggleExpanded(false)">Read Less</span>
         </span>
@@ -32,7 +33,7 @@
 
     <!-- Right: Photo -->
     <div class="photo-area">
-      <img src="assets/myPhoto.jpg" alt="My Photo" />
+      <img src="assets/Artworks/myPhoto.jpg" alt="My Photo" />
     </div>
   </div>
 </section>

@@ -92,6 +92,10 @@
   color: #03787e;
 }
 
+
+.clickable-text {color: #06e2ee;}
+.clickable-text:hover {cursor: pointer; color: #096969fe;}
+
 /* ===== Right Image ===== */
 .photo-area {
   flex: 1;

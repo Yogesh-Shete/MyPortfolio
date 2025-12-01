@@ -16,11 +16,11 @@ export class ContactMeComponent {
     subject: string;
     message: string;
   } = {
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  };
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    };
 
   fileToSend: File | null = null;
   sending = false;
@@ -30,6 +30,12 @@ export class ContactMeComponent {
 
   // Replace this with your Formspree endpoint or EmailJS logic
   private FORMSPREE_ENDPOINT = 'https://formspree.io/f/xovrrknd';
+
+  logos = [
+    { src: 'assets/Logos/linkedin.png', alt: 'LinkedIn' },
+    { src: 'assets/Logos/Github.png', alt: 'GitHub' },
+    { src: 'assets/Logos/Instagram.png', alt: 'Instagram' },
+  ];
 
   onFileChange(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -95,5 +101,22 @@ export class ContactMeComponent {
         nameInput?.focus();
       }
     }, 0);
+  }
+
+  navigate(navigator: string) {
+    let url = "";
+    if (navigator === "GitHub") {
+      url = "https://github.com/Yogesh-Shete"
+      window.open(url, '_blank');
+
+    }
+    else if (navigator === "Instagram") {
+      // url = "https://www.instagram.com/yogeshshete_/";
+    }
+    else if (navigator === "LinkedIn") {
+      url = "https://www.linkedin.com/in/yogesh-shete-329862221/";
+      window.open(url, '_blank');
+
+    }
   }
 }

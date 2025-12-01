@@ -27,18 +27,18 @@ export class ArtworksComponent {
     {
       id: 'art1',
       title: 'Beautiful Couple',
-      refSrc: 'assets/Couple1_Ref.jpg',
-      actualSrc: 'assets/Couple1.jpg',
-      thumbSrc: 'assets/Couple1.jpg',
+      refSrc: 'assets/Artworks/Couple1_Ref.jpg',
+      actualSrc: 'assets/Artworks/Couple1.jpg',
+      thumbSrc: 'assets/Artworks/Couple1.jpg',
       year: '2025',
       medium: 'Pencil on Paper'
     },
     {
       id: 'art2',
       title: 'Girl Portrait',
-      refSrc: 'assets/Solo_Girl2_Ref.png',
-      actualSrc: 'assets/Solo_Girl2.jpg',
-      thumbSrc: 'assets/Solo_Girl2.jpg',
+      refSrc: 'assets/Artworks/Solo_Girl2_Ref.png',
+      actualSrc: 'assets/Artworks/Solo_Girl2.jpg',
+      thumbSrc: 'assets/Artworks/Solo_Girl2.jpg',
       year: '2025',
       medium: 'Pencil on Paper'
     }
